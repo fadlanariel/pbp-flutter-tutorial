@@ -63,6 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             // Menambahkan clickable menu
             ListTile(
+              leading: const Icon(Icons.numbers),
               title: const Text('Counter'),
               onTap: () {
                 // Route menu ke halaman utama
@@ -73,6 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             ListTile(
+              leading: const Icon(Icons.assignment_ind),
               title: const Text('Form'),
               onTap: () {
                 // Route menu ke halaman form

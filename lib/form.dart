@@ -32,6 +32,7 @@ class _MyFormPageState extends State<MyFormPage> {
           children: [
             // Menambahkan clickable menu
             ListTile(
+              leading: const Icon(Icons.numbers),
               title: const Text('Counter'),
               onTap: () {
                 // Route menu ke halaman utama
@@ -42,6 +43,7 @@ class _MyFormPageState extends State<MyFormPage> {
               },
             ),
             ListTile(
+              leading: const Icon(Icons.assignment_ind),
               title: const Text('Form'),
               onTap: () {
                 // Route menu ke halaman form
@@ -120,6 +122,8 @@ class _MyFormPageState extends State<MyFormPage> {
                             if (value){
                               jenjangMagister = jenjangDiploma = jenjangDoktor = false;
                               _jenjang = "Sarjana";
+                            } else {
+                              _jenjang = "";
                             }
                           });
                         },
@@ -133,6 +137,8 @@ class _MyFormPageState extends State<MyFormPage> {
                             if (value){
                               jenjangMagister = jenjangSarjana = jenjangDoktor = false;
                               _jenjang = "Diploma";
+                            } else {
+                              _jenjang = "";
                             }
                           });
                         },
@@ -146,6 +152,8 @@ class _MyFormPageState extends State<MyFormPage> {
                             if (value){
                               jenjangDiploma = jenjangSarjana = jenjangDoktor = false;
                               _jenjang = "Magister";
+                            } else {
+                              _jenjang = "";
                             }
                           });
                         },
@@ -159,6 +167,8 @@ class _MyFormPageState extends State<MyFormPage> {
                             if (value){
                               jenjangMagister = jenjangSarjana = jenjangDiploma = false;
                               _jenjang = "Doktor";
+                            } else {
+                              _jenjang = "";
                             }
                           });
                         },
@@ -166,7 +176,7 @@ class _MyFormPageState extends State<MyFormPage> {
                     ],
                   ),
                 ),
-                // Slider
+                // Slider Umur
                 ListTile(
                   leading: const Icon(Icons.co_present),
                   title: Row(
@@ -236,24 +246,24 @@ class _MyFormPageState extends State<MyFormPage> {
                             elevation: 15,
                             child: Container(
                               child: ListView(
-                                padding: const EdgeInsets.only(top: 20, bottom: 20),
+                                padding: const EdgeInsets.only(top : 20, bottom: 20),
                                 shrinkWrap: true,
                                 children: <Widget>[
                                   const Center(
                                       child: Text('Informasi Data',
-                                      style: TextStyle(fontWeight: FontWeight.bold),),
+                                      style: TextStyle(fontWeight: FontWeight.bold,
+                                                       fontSize: 15)),
                                   ),
                                   const SizedBox(height: 20),
                                   // Munculkan informasi yang didapat dari form
-                                  Column(
-                                    //mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text('Nama : ' + _namaLengkap ),
-                                      Text('Jenjang : ' + _jenjang),
-                                      Text('Umur : ' + umur.toString()),
-                                      Text('Kelas PBP : ' + kelasPBP),
-                                      Text('Practice Mode : ' + _nilaiSwitch.toString()),
-                                    ],
+                                  Center(
+                                    child: Text(
+                                            'Nama : $_namaLengkap\n'
+                                            'Jenjang : $_jenjang\n'
+                                            'Umur : ${umur.toInt()}\n'
+                                            'Kelas PBP : $kelasPBP\n'
+                                            'Practice Mode : $_nilaiSwitch\n',
+                                    ),
                                   ),
                                   TextButton(
                                     onPressed: () {
