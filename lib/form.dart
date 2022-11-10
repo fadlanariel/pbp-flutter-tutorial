@@ -206,14 +206,21 @@ class _MyFormPageState extends State<MyFormPage> {
                                 padding: const EdgeInsets.only(top: 20, bottom: 20),
                                 shrinkWrap: true,
                                 children: <Widget>[
-                                  const Center(child: Text('Informasi Data')),
+                                  const Center(
+                                      child: Text('Informasi Data',
+                                      style: TextStyle(fontWeight: FontWeight.bold),),
+                                  ),
                                   const SizedBox(height: 20),
                                   // TODO: Munculkan informasi yang didapat dari form
-                                  Text('Nama : ' + _namaLengkap),
-                                  Text('Jenjang : ' + _jenjang),
-                                  Text('Umur : ' + umur.toString()),
-                                  Text('Kelas PBP : ' + kelasPBP),
-                                  Text('Practice Mode : ' + _nilaiSwitch.toString()),
+                                  Column(
+                                    children: [
+                                      Text('Nama : ' + _namaLengkap),
+                                      Text('Jenjang : ' + _jenjang),
+                                      Text('Umur : ' + umur.toString()),
+                                      Text('Kelas PBP : ' + kelasPBP),
+                                      Text('Practice Mode : ' + _nilaiSwitch.toString()),
+                                    ],
+                                  ),
                                   TextButton(
                                     onPressed: () {
                                       Navigator.pop(context);
