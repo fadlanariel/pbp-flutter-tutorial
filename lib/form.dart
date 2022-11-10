@@ -27,6 +27,33 @@ class _MyFormPageState extends State<MyFormPage> {
       appBar: AppBar(
         title: const Text('Form'),
       ),
+      drawer: Drawer(
+        child: Column(
+          children: [
+            // Menambahkan clickable menu
+            ListTile(
+              title: const Text('Counter'),
+              onTap: () {
+                // Route menu ke halaman utama
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MyHomePage()),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('Form'),
+              onTap: () {
+                // Route menu ke halaman form
+                Navigator.pop(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MyFormPage()),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
       body: Form(
         key: _formKey,
         child: SingleChildScrollView(
@@ -34,6 +61,7 @@ class _MyFormPageState extends State<MyFormPage> {
             padding: const EdgeInsets.all(20.0),
             child: Column(
               children: [
+                // Text input
                 Padding(
                   // Menggunakan padding sebesar 8 pixels
                   padding: const EdgeInsets.all(8.0),
@@ -69,6 +97,7 @@ class _MyFormPageState extends State<MyFormPage> {
                     },
                   ),
                 ),
+                // Checkbox radio button
                 Container(
                   margin: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
@@ -137,6 +166,7 @@ class _MyFormPageState extends State<MyFormPage> {
                     ],
                   ),
                 ),
+                // Slider
                 ListTile(
                   leading: const Icon(Icons.co_present),
                   title: Row(
@@ -156,6 +186,7 @@ class _MyFormPageState extends State<MyFormPage> {
                     },
                   ),
                 ),
+                // Dropdown
                 ListTile(
                   leading: const Icon(Icons.class_),
                   title: const Text(
@@ -177,6 +208,7 @@ class _MyFormPageState extends State<MyFormPage> {
                     },
                   ),
                 ),
+                // Switch
                 SwitchListTile(
                   title: const Text('Practice Mode'),
                   value: _nilaiSwitch,
@@ -187,6 +219,7 @@ class _MyFormPageState extends State<MyFormPage> {
                   },
                   secondary: const Icon(Icons.run_circle_outlined),
                 ),
+                // Button
                 TextButton(
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.blue),
@@ -211,10 +244,11 @@ class _MyFormPageState extends State<MyFormPage> {
                                       style: TextStyle(fontWeight: FontWeight.bold),),
                                   ),
                                   const SizedBox(height: 20),
-                                  // TODO: Munculkan informasi yang didapat dari form
+                                  // Munculkan informasi yang didapat dari form
                                   Column(
+                                    //mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text('Nama : ' + _namaLengkap),
+                                      Text('Nama : ' + _namaLengkap ),
                                       Text('Jenjang : ' + _jenjang),
                                       Text('Umur : ' + umur.toString()),
                                       Text('Kelas PBP : ' + kelasPBP),
